@@ -1,27 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import VideoListItem from './video_list_item';
 
-let styles = {
-    width: '100%',
-    margin: '50px auto'
+const VideoList = (props) => {
+    const videoItems = props.videos.map(video => {
+        return <VideoListItem key={ video.etag } video={ video } />
+    });
+
+    return (
+        <ul className="col-md-4 list-group">
+            { videoItems }
+        </ul>
+    );
 }
 
-class SearchBar extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { term: '' };
-    }
-
-    render() {
-        return (
-            <div>
-                <input 
-                    style={styles}
-                    value={this.state.term}
-                    onChange={event => this.setState({ term: event.target.value })} />
-            </div>
-        );
-    }
-}
-
-export default SearchBar;
+export default VideoList;
