@@ -1,27 +1,25 @@
 import React, { Component } from 'react';
 
-let styles = {
-    width: '100%',
-    margin: '50px auto'
-}
-
-class SearchBar extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { term: '' };
+const VideoDetail = ({ video }) => {
+    if(!video) {
+        return <div>Loading ...</div>;
     }
 
-    render() {
-        return (
-            <div>
-                <input 
-                    style={styles}
-                    value={this.state.term}
-                    onChange={event => this.setState({ term: event.target.value })} />
+    const videoId = video.id.videoId;
+    const url = `https://www.youtube.com/embed/${videoId}`;
+
+    return (
+        <div className="video-detail col-md-8">
+            <div className="embed-responsive embed-responsive-16by9">
+                <iframe className="embed-responsive-item" src={ url }></iframe>
             </div>
-        );
-    }
-}
 
-export default SearchBar;
+            <div className="details">
+                <div>{ video.snippet.title }</div>
+                <div>{ video.snippet.description }</div>
+            </div>
+        </div>
+    );
+};
+
+export default VideoDetail;
