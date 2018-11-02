@@ -19,7 +19,7 @@ body {
 
 input {
     background-color: #212121 !important;
-    color: honeydew !important;
+    color: aliceblue !important;
     border: 0;
     margin: 0 !important;
     padding: 0;
@@ -48,7 +48,7 @@ input {
 }
 
 .list-group-item {
-    background-color: #424242 !important;
+    background-color: #212121 !important;
 }
 
 .media-item {
@@ -61,6 +61,6 @@ input {
 }
 
 .list-group-item:hover {
-    background-color: #616161 !important;
+    background-color: #424242 !important;
     cursor: pointer;
 }

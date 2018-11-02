@@ -23,7 +23,10 @@ class SearchBar extends Component {
                     onChange={event => this.setState({ term: event.target.value })} />
                 <button 
                     className="btn btn-light" 
-                    onClick={ () => this.props.setTerm(this.state.term) }>
+                    onClick={ () => {
+                        this.props.setTerm(this.state.term);
+                        this.props.searchYoutubeVideos(this.state.term);
+                    } }>
                         <img src="../../images/search-24px.svg"/>
                 </button>
             </div>
